@@ -11,8 +11,9 @@
   },
 
     "content_scripts": [{
+      "run_at" : "document_idle",
       "js": ["content.js"],
-      "matches": ["https://www.yahoo.com/*"]
+      "matches": ["https://*/*"]
       }],
 
   "permissions": [
