@@ -11,12 +11,15 @@
   },
 
     "content_scripts": [{
-      "run_at" : "document_idle",
-      "js": ["content.js"],
-      "matches": ["https://*/*"]
-      }],
+		"run_at":	"document_end",
+		"js":	["content.js"],
+		"matches":	["https://*/*","http://*/*"]
+	}],
 
   "permissions": [
-   "activeTab"
+	   "activeTab",
+	   "tabs",
+	   "http://*/*",
+	   "https://*/*"
    ]
 }
