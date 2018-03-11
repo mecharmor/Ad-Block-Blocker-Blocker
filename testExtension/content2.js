@@ -1,8 +1,10 @@
 
-// Variables
-let	ob;
-
 window.addEventListener("load", function()	{
+	console.log("AAAAAAAAAAAAAAAAAAA");
+	func();
+});
+
+function func()	{
 	ob=	new MutationObserver(function(args)	{
 		for(let a= 0; a< args.length; a++)	{
 			for(let b= 0; b< args[a].addedNodes.length; b++)	{
@@ -16,10 +18,6 @@ window.addEventListener("load", function()	{
 					try{
 					  imgs[c].src = 'https://placekitten.com/' + imgs[c].width + '/' + imgs[c].height;
 					  // Placeholder one has a better image system than placekitten because there are not enough kitten photos
-					  /*if(imgs[c].width== imgs[c].height== 0)
-						imgs[c].src="https://via.placeholder.com/100x100";
-					  else
-						imgs[c].src = 'https://via.placeholder.com/' + imgs[c].width + 'x' + imgs[c].height;*/
 					}catch(e){console.log(e);}
 				}
 			}
@@ -30,19 +28,21 @@ window.addEventListener("load", function()	{
 		subtree:	true,
 		attributes:	true
 	});
-	
+
 	setTimeout(changeImages, 5000);
-});
 
-function changeImages()	{
-	// Variables
-	let	imgs=	document.getElementsByTagName("img");
 
-	for(let b= 0; b< imgs.length; b++)	{
-		try{
-		  imgs[b].src = 'https://placekitten.com/' + imgs[b].width + '/' + imgs[b].height;
-		  //imgs[b].src = 'https://via.placeholder.com/' + imgs[b].width + 'x' + imgs[b].height;
-		}catch(e){console.log(e);}
+	function changeImages()	{
+		// Variables
+		let	imgs=	document.getElementsByTagName("img");
+
+		for(let b= 0; b< imgs.length; b++)	{
+			try{
+			  imgs[b].src = 'https://placekitten.com/' + imgs[b].width + '/' + imgs[b].height;
+			  //imgs[b].src = 'https://via.placeholder.com/' + imgs[b].width + 'x' + imgs[b].height;
+			}catch(e){console.log(e);}
+		}
 	}
+	changeImages();
 }
-changeImages();
+func();
